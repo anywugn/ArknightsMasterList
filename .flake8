@@ -1,0 +1,4 @@
+[flake8]
+ignore =
+    E303,  # Too many blank lines (3)
+    E501   # Line too long (82 > 79 characters)
