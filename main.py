@@ -76,10 +76,10 @@ def print_operator(op, sk):
 
     # load images
     img1 = Image.open('resource/Slot - single - background.png')
-    img2 = Image.open('avatar/'+op['filename']+'_'+str(sk['costume'])+'.png')
+    img2 = Image.open('avatar/' + op['filename'] + '_' + str(sk['costume']) + '.png')
     img3 = Image.open('resource/Slot - single  精二+黑遮罩.png')
     img4 = Image.open('resource/Akteam-rarity_' + op['rare'] + '.png')
-    img5 = Image.open('resource/潜能'+str(sk['potential'])+'.png')
+    img5 = Image.open('resource/潜能' + str(sk['potential']) + '.png')
     img6 = Image.open('resource/' + str((sk['level'] // 10) * 10) + '.png')
     img7 = Image.open('resource/专精' + str(sk['skill1']) + '.png')
     img8 = Image.open('resource/专精' + str(sk['skill2']) + '.png')
@@ -100,7 +100,7 @@ def print_operator(op, sk):
     bg.paste(img6, (startX + 108, startY + 250), mask=img6)
     bg.paste(img7, (startX + 17, startY + 292), mask=img7)
     bg.paste(img8, (startX + 62, startY + 292), mask=img8)
-    if (op['rare'] == '6'):
+    if (op['rare'] == '6' or op['name'] == '阿米娅'):
         bg.paste(img9, (startX + 107, startY + 292), mask=img9)
 
     startX += slot_width
@@ -146,7 +146,7 @@ if __name__ == "__main__":
         skill = sorted(skill, key=lambda i: (
             i['class'], i['level']), reverse=True)
 
-    print('您一共有 '+str(num)+' 个干员要打印\n')
+    print('您一共有 ' + str(num) + ' 个干员要打印\n')
 
     if (background_png != ''):
         bg = Image.open(background_png)
@@ -167,7 +167,7 @@ if __name__ == "__main__":
         for op in operator:
             if (op['name'] == sk['name']):
                 pos = op
-                #print("matched! :" + op['name']+ '\n')
+                # print("matched! :" + op['name']+ '\n')
 
         if (current_class != pos['class']):
             current_class = pos['class']
@@ -175,7 +175,7 @@ if __name__ == "__main__":
                 print_class(current_class)
         print_operator(pos, sk)
 
-    print('\n干员数量统计 '+str(num))
+    print('\n干员数量统计 ' + str(num))
     print('\n专精数量统计[专0，专1，专2，专3] = ' + str(mcnt))
 
     if (scale != 1.0):
@@ -185,57 +185,5 @@ if __name__ == "__main__":
 
     bg.show()
 
-    zs, xs = str(scale*100).split('.')
+    zs, xs = str(scale * 100).split('.')
     bg.convert('RGB').convert('RGBA').save('result-c-' + str(zs) + '%.png')
-    '''
-
- 
-
-    while (startY < bg.height - img0.height):
-        startX=line_diff * line + left_indent
-
-        while (startX < bg.width - img0.width):
-
-
-
-            img1=Image.open('resource/Slot - single - background.png')
-            img2=Image.open('resource/立绘.png')
-            img3=Image.open('resource/Slot - single  精二+黑遮罩.png')
-            img4=Image.open('resource/Akteam-rarity_6.png')
-            img5=Image.open('resource/潜能5.png')
-            img6=Image.open('resource/90.png')
-            img7=Image.open('resource/专精3.png')
-            img8=Image.open('resource/专精2.png')
-            img9=Image.open('resource/专精0.png')
-
-
-
-
-            bg.paste(img1,(startX,startY), mask=img1.split()[3])
-            bg.paste(img2,(startX + 12 ,startY + 284 - img2.height), mask=img2)
-            bg.paste(img3,(startX + 12 ,startY + 284 - img3.height), mask=img3)
-            bg.paste(img4,(startX + 12 ,startY + 284 - img4.height), mask=img4)
-            bg.paste(img5,(startX + 16 ,startY + 244), mask=img5)
-            bg.paste(img6,(startX + 108 ,startY + 250), mask=img6)
-            bg.paste(img7,(startX + 17 ,startY + 292), mask=img7)
-            bg.paste(img8,(startX + 62 ,startY + 292), mask=img8)
-            bg.paste(img9,(startX + 107 ,startY + 292), mask=img9)
-
-            cnt += 1
-
-
-
-            startX += img0.width
-
-        line += 1
-        startY += img0.height
-    
-
-
-    bg.show()
-    #bg.convert('RGB').save('result.jpg')
-    #bg.save('result.png')
-    bg.convert('RGB').convert('RGBA').save('result-c.png')
-    print('Total Count: ' + str(cnt))
-
-    '''
