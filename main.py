@@ -32,7 +32,7 @@ usr_bg_height = 1080
 master_only = True
 
 # class icon is cooooool but you can turn it off anyway
-display_class_icon = False
+display_class_icon = True
 
 
 # the final scale of output image, 1.0 = 100% = No Scale
