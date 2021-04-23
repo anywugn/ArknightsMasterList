@@ -1,0 +1,638 @@
+[
+  {
+    "owner": "赫拉格",
+    "series": "斗争血脉/II",
+    "name": "歧路幻影",
+    "code": 3
+  },
+  {
+    "owner": "白雪",
+    "series": "斗争血脉/II",
+    "name": "曲刃晴风",
+    "code": 3
+  },
+  {
+    "owner": "阿米娅",
+    "series": "忒斯特收藏/IV",
+    "name": "播种者",
+    "code": 6
+  },
+  {
+    "owner": "灰烬",
+    "series": "彩虹六号：围攻",
+    "name": "游侠",
+    "code": 3
+  },
+  {
+    "owner": "战车",
+    "series": "彩虹六号：围攻",
+    "name": "领主",
+    "code": 3
+  },
+  {
+    "owner": "黑",
+    "series": "雷神推进者",
+    "name": "天际线",
+    "code": 4
+  },
+  {
+    "owner": "雷蛇",
+    "series": "雷神推进者",
+    "name": "超载",
+    "code": 4
+  },
+  {
+    "owner": "年",
+    "series": "0011制造/III",
+    "name": "乐逍遥",
+    "code": 3
+  },
+  {
+    "owner": "阿",
+    "series": "0011制造/III",
+    "name": "百面郎中",
+    "code": 3
+  },
+  {
+    "owner": "吽",
+    "series": "0011制造/III",
+    "name": "一介车夫",
+    "code": 3
+  },
+  {
+    "owner": "絮雨",
+    "series": "0011制造/III",
+    "name": "孤寒峭",
+    "code": 3
+  },
+  {
+    "owner": "柏喙",
+    "series": "寒武纪/II",
+    "name": "软绒",
+    "code": 3
+  },
+  {
+    "owner": "芳汀",
+    "series": "寒武纪/II",
+    "name": "随性",
+    "code": 3
+  },
+  {
+    "owner": "砾",
+    "series": "寒武纪/II",
+    "name": "模特之夜",
+    "code": 3
+  },
+  {
+    "owner": "赫默",
+    "series": "寒武纪/II",
+    "name": "霜息",
+    "code": 4
+  },
+  {
+    "owner": "塞雷娅",
+    "series": "忒斯特收藏/III",
+    "name": "铁律",
+    "code": 4
+  },
+  {
+    "owner": "温蒂",
+    "series": "冰原信使/II",
+    "name": "糖果仙子",
+    "code": 3
+  },
+  {
+    "owner": "极境",
+    "series": "冰原信使/II",
+    "name": "雪夜回音",
+    "code": 3
+  },
+  {
+    "owner": "守林人",
+    "series": "冰原信使/II",
+    "name": "覆雪",
+    "code": 4
+  },
+  {
+    "owner": "格雷伊",
+    "series": "时代/VIII",
+    "name": "八音蛋匠人",
+    "code": 3
+  },
+  {
+    "owner": "W",
+    "series": "时代/VII",
+    "name": "恍惚",
+    "code": 3
+  },
+  {
+    "owner": "德克萨斯",
+    "series": "时代/VII",
+    "name": "意志",
+    "code": 4
+  },
+  {
+    "owner": "杜宾",
+    "series": "时代/VII",
+    "name": "少尉",
+    "code": 3
+  },
+  {
+    "owner": "伊桑",
+    "series": "时代/VII",
+    "name": "渗透",
+    "code": 3
+  },
+  {
+    "owner": "风笛",
+    "series": "啸风",
+    "name": "皇后一号",
+    "code": 3
+  },
+  {
+    "owner": "铃兰",
+    "series": "生命之地/III",
+    "name": "弃土花开",
+    "code": 3
+  },
+  {
+    "owner": "莱恩哈特",
+    "series": "生命之地/III",
+    "name": "宝藏行家",
+    "code": 3
+  },
+  {
+    "owner": "四月",
+    "series": "生命之地/III",
+    "name": "远望",
+    "code": 3
+  },
+  {
+    "owner": "格拉尼",
+    "series": "时代/VI",
+    "name": "美妙时光",
+    "code": 3
+  },
+  {
+    "owner": "傀影",
+    "series": "缠梦古堡",
+    "name": "梦魇之梦",
+    "code": 3
+  },
+  {
+    "owner": "梅尔",
+    "series": "缠梦古堡",
+    "name": "庭院寻梦尖兵",
+    "code": 3
+  },
+  {
+    "owner": "格劳克斯",
+    "series": "缠梦古堡",
+    "name": "广场扫荡客",
+    "code": 3
+  },
+  {
+    "owner": "阿消",
+    "series": "缠梦古堡",
+    "name": "古堡清洁专家",
+    "code": 3
+  },
+  {
+    "owner": "临光",
+    "series": "珊瑚海岸/II",
+    "name": "灿阳朝露 SD01",
+    "code": 3
+  },
+  {
+    "owner": "暗索",
+    "series": "珊瑚海岸/II",
+    "name": "夏卉 FA008",
+    "code": 4
+  },
+  {
+    "owner": "斯卡蒂",
+    "series": "珊瑚海岸/III",
+    "name": "驭浪 WR04",
+    "code": 3
+  },
+  {
+    "owner": "普罗旺斯",
+    "series": "珊瑚海岸/III",
+    "name": "悠然假日 HD08",
+    "code": 3
+  },
+  {
+    "owner": "白金",
+    "series": "珊瑚海岸/III",
+    "name": "灿阳朝露 SD05",
+    "code": 3
+  },
+  {
+    "owner": "银灰",
+    "series": "珊瑚海岸/IV",
+    "name": "探寻者 SKm01",
+    "code": 4
+  },
+  {
+    "owner": "刻俄柏",
+    "series": "珊瑚海岸/IV",
+    "name": "夏卉 FA333",
+    "code": 3
+  },
+  {
+    "owner": "可颂",
+    "series": "珊瑚海岸/IV",
+    "name": "探寻者 SK03",
+    "code": 4
+  },
+  {
+    "owner": "宴",
+    "series": "珊瑚海岸/IV",
+    "name": "夏卉 FA661",
+    "code": 3
+  },
+  {
+    "owner": "莫斯提马",
+    "series": "时代/V",
+    "name": "除魅",
+    "code": 3
+  },
+  {
+    "owner": "星极",
+    "series": "时代/V",
+    "name": "寻耀",
+    "code": 3
+  },
+  {
+    "owner": "狮蝎",
+    "series": "时代/IV",
+    "name": "无形悼挽",
+    "code": 3
+  },
+  {
+    "owner": "麦哲伦",
+    "series": "罗德厨房",
+    "name": "回味冰霜雪",
+    "code": 3
+  },
+  {
+    "owner": "真理",
+    "series": "罗德厨房",
+    "name": "书味",
+    "code": 3
+  },
+  {
+    "owner": "猎蜂",
+    "series": "罗德厨房",
+    "name": "掠蜜能手",
+    "code": 3
+  },
+  {
+    "owner": "夜魔",
+    "series": "时代/IV",
+    "name": "光影",
+    "code": 3
+  },
+  {
+    "owner": "塞雷娅",
+    "series": "斗争血脉/I",
+    "name": "坚城",
+    "code": 3
+  },
+  {
+    "owner": "安洁莉娜",
+    "series": "斗争血脉/I",
+    "name": "质素访客",
+    "code": 3
+  },
+  {
+    "owner": "拉普兰德",
+    "series": "斗争血脉/I",
+    "name": "典雅噩兆",
+    "code": 3
+  },
+  {
+    "owner": "送葬人",
+    "series": "斗争血脉/I",
+    "name": "无题密令",
+    "code": 3
+  },
+  {
+    "owner": "灰喉",
+    "series": "斗争血脉/I",
+    "name": "归巢",
+    "code": 3
+  },
+  {
+    "owner": "月见夜",
+    "series": "斗争血脉/I",
+    "name": "第七夜苏醒魔君",
+    "code": 3
+  },
+  {
+    "owner": "阿米娅",
+    "series": "忒斯特收藏/II",
+    "name": "见习连结者",
+    "code": 5
+  },
+  {
+    "owner": "米格鲁",
+    "series": "斗争血脉/I",
+    "name": "无畏",
+    "code": 3
+  },
+  {
+    "owner": "白面鸮",
+    "series": "时代/III",
+    "name": "幽静",
+    "code": 3
+  },
+  {
+    "owner": "崖心",
+    "series": "WWF",
+    "name": "高原访客",
+    "code": 4
+  },
+  {
+    "owner": "嘉维尔",
+    "series": "时代/II",
+    "name": "战医",
+    "code": 3
+  },
+  {
+    "owner": "星熊",
+    "series": "0011/飙系列",
+    "name": "狩标狼人",
+    "code": 3
+  },
+  {
+    "owner": "凛冬",
+    "series": "玛尔特/II",
+    "name": "整装待发",
+    "code": 3
+  },
+  {
+    "owner": "陈",
+    "series": "0011制造/II",
+    "name": "岁红霞",
+    "code": 3
+  },
+  {
+    "owner": "诗怀雅",
+    "series": "0011制造/II",
+    "name": "富贵荣华",
+    "code": 3
+  },
+  {
+    "owner": "雷蛇",
+    "series": "0011制造/II",
+    "name": "春竜",
+    "code": 3
+  },
+  {
+    "owner": "杰西卡",
+    "series": "0011制造/II",
+    "name": "君子兰",
+    "code": 5
+  },
+  {
+    "owner": "远山",
+    "series": "时代/II",
+    "name": "未知的旅行",
+    "code": 3
+  },
+  {
+    "owner": "黑",
+    "series": "冰原信使/I",
+    "name": "厚礼",
+    "code": 3
+  },
+  {
+    "owner": "银灰",
+    "series": "冰原信使/I",
+    "name": "约克的寒风",
+    "code": 3
+  },
+  {
+    "owner": "初雪",
+    "series": "冰原信使/I",
+    "name": "开斯特之霜",
+    "code": 3
+  },
+  {
+    "owner": "卡缇",
+    "series": "冰原信使/I",
+    "name": "快乐卫士",
+    "code": 3
+  },
+  {
+    "owner": "食铁兽",
+    "series": "玛尔特/I",
+    "name": "片场一角",
+    "code": 3
+  },
+  {
+    "owner": "推进之王",
+    "series": "生命之地/II",
+    "name": "遗石",
+    "code": 3
+  },
+  {
+    "owner": "守林人",
+    "series": "生命之地/II",
+    "name": "枯柏",
+    "code": 3
+  },
+  {
+    "owner": "杰西卡",
+    "series": "生命之地/II",
+    "name": "燃灰",
+    "code": 4
+  },
+  {
+    "owner": "能天使",
+    "series": "肯德基",
+    "name": "城市骑手",
+    "code": 4
+  },
+  {
+    "owner": "伊芙利特",
+    "series": "肯德基",
+    "name": "儿童派对",
+    "code": 4
+  },
+  {
+    "owner": "可颂",
+    "series": "肯德基",
+    "name": "清晨七点",
+    "code": 3
+  },
+  {
+    "owner": "夜莺",
+    "series": "巫异盛宴",
+    "name": "挽歌",
+    "code": 3
+  },
+  {
+    "owner": "华法琳",
+    "series": "巫异盛宴",
+    "name": "盛宴",
+    "code": 3
+  },
+  {
+    "owner": "克洛丝",
+    "series": "巫异盛宴",
+    "name": "魔术师",
+    "code": 3
+  },
+  {
+    "owner": "暗索",
+    "series": "巫异盛宴",
+    "name": "小鬼当家",
+    "code": 3
+  },
+  {
+    "owner": "玫兰莎",
+    "series": "时代/I",
+    "name": "威塞克斯的信件",
+    "code": 3
+  },
+  {
+    "owner": "陨星",
+    "series": "雷神开拓者",
+    "name": "石墨",
+    "code": 3
+  },
+  {
+    "owner": "赫默",
+    "series": "雷神开拓者",
+    "name": "漆匠",
+    "code": 3
+  },
+  {
+    "owner": "杰西卡",
+    "series": "雷神开拓者",
+    "name": "铁块",
+    "code": 3
+  },
+  {
+    "owner": "闪灵",
+    "series": "珊瑚海岸/I",
+    "name": "静谧午夜 DN02",
+    "code": 3
+  },
+  {
+    "owner": "天火",
+    "series": "珊瑚海岸/I",
+    "name": "温差 RT.RX01",
+    "code": 3
+  },
+  {
+    "owner": "红豆",
+    "series": "珊瑚海岸/I",
+    "name": "悠然假日 HD01",
+    "code": 3
+  },
+  {
+    "owner": "安塞尔",
+    "series": "珊瑚海岸/I",
+    "name": "悠然假日",
+    "code": 3
+  },
+  {
+    "owner": "角峰",
+    "series": "珊瑚海岸/I",
+    "name": "沙滩护卫",
+    "code": 3
+  },
+  {
+    "owner": "CASTLE-3",
+    "series": "珊瑚海岸/I",
+    "name": "SUM019.ver",
+    "code": 3
+  },
+  {
+    "owner": "伊芙利特",
+    "series": "珊瑚海岸/I",
+    "name": "日晒 SS.SP",
+    "code": 3
+  },
+  {
+    "owner": "空",
+    "series": "珊瑚海岸/I",
+    "name": "夏卉 FA361",
+    "code": 3
+  },
+  {
+    "owner": "古米",
+    "series": "珊瑚海岸/I",
+    "name": "夏卉 FA011",
+    "code": 3
+  },
+  {
+    "owner": "能天使",
+    "series": "生命之地/I",
+    "name": "野地秘行",
+    "code": 3
+  },
+  {
+    "owner": "崖心",
+    "series": "生命之地/I",
+    "name": "孤攀客",
+    "code": 3
+  },
+  {
+    "owner": "蛇屠箱",
+    "series": "生命之地/I",
+    "name": "四边形",
+    "code": 3
+  },
+  {
+    "owner": "调香师",
+    "series": "忒斯特收藏/I",
+    "name": "植物种志",
+    "code": 3
+  },
+  {
+    "owner": "末药",
+    "series": "生命之地/I",
+    "name": "辛味",
+    "code": 3
+  },
+  {
+    "owner": "阿米娅",
+    "series": "忒斯特收藏/I",
+    "name": "报童",
+    "code": 4
+  },
+  {
+    "owner": "芙蓉",
+    "series": "0011制造/I",
+    "name": "守岁人",
+    "code": 3
+  },
+  {
+    "owner": "芬",
+    "series": "寒武纪/I",
+    "name": "十字郡",
+    "code": 3
+  },
+  {
+    "owner": "德克萨斯",
+    "series": "寒武纪/I",
+    "name": "寒冬信使",
+    "code": 3
+  },
+  {
+    "owner": "幽灵鲨",
+    "series": "寒武纪/I",
+    "name": "暗流",
+    "code": 3
+  },
+  {
+    "owner": "讯使",
+    "series": "寒武纪/I",
+    "name": "新航线",
+    "code": 3
+  }
+]
