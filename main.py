@@ -32,8 +32,10 @@ usr_bg_height = 1080
 master_only = True
 
 # class icon is cooooool but you can turn it off anyway
-display_class_icon = False
+display_class_icon = True
 
+# sort by class, then level
+list_sorted = False
 
 # the final scale of output image, 1.0 = 100% = No Scale
 scale = 1.0
@@ -142,7 +144,7 @@ if __name__ == "__main__":
 
         sk['class'] = posclass
 
-    if (display_class_icon):
+    if (list_sorted or display_class_icon):
         skill = sorted(skill, key=lambda i: (
             i['class'], i['level']), reverse=True)
 
