@@ -1,6 +1,14 @@
 from PIL import Image
 
-#if no left banner then set to 0
+#don't change
+input_operation_list = 'operators.txt'
+
+
+#rename 'skill_example.txt' as 'skill.txt'
+input_skill_list = 'skills.txt'
+
+
+#if no left [ID Card] then set to 0
 left_indent = 407
 
 #right bound
@@ -15,8 +23,19 @@ line_diff=70
 #relative path of background image, use gray if leave empty 
 background_png=''
 
+#size of image if no background image specified
+usr_bg_width = 5000
+usr_bg_height = 1080
+
 #only display operators with master skills
 master_only = True
+
+#class icon is cooooool but you can turn it off anyway
+display_class_icon = False
+
+
+#the final scale of output image, 1.0 = 100% = No Scale
+scale = 1.0
 
 
 #don't change 
@@ -40,7 +59,7 @@ def print_operator(op, sk):
 
     #debug
     # print(op['name'])
-    print(sk['name'])
+    print('正在打印：' + sk['name']+ '\n')
 
 
     #cnt
@@ -113,12 +132,12 @@ if __name__ == "__main__":
 
 
 
-    with open('operators.txt', 'r', encoding='utf-8') as f:
+    with open(input_operation_list, 'r', encoding='utf-8') as f:
         operator = eval ('[' + f.read() + ']')
 
 
 
-    with open('skills.txt', 'r', encoding = 'utf-8') as f:
+    with open(input_skill_list, 'r', encoding = 'utf-8') as f:
         skill = eval ('[' + f.read() + ']')
 
 
@@ -135,14 +154,16 @@ if __name__ == "__main__":
         
         sk['class'] = posclass
 
-    skill = sorted(skill, key = lambda i: (i['class'], i['level']),reverse=True)
-    print('num = '+str(num)+'\n')
+    if (display_class_icon): skill = sorted(skill, key = lambda i: (i['class'], i['level']),reverse=True)
+    
+    
+    print('您一共有 '+str(num)+' 个干员要打印\n')
 
 
     if (background_png != ''):
         bg = Image.open(background_png)
     else:
-        bg = Image.new('RGBA', (5000, 1080), (49, 49, 49, 255))
+        bg = Image.new('RGBA', (usr_bg_width, usr_bg_height), (49, 49, 49, 255))
     
     bg_height = bg.height
     bg_width = bg.width
@@ -164,15 +185,23 @@ if __name__ == "__main__":
 
         if ( current_class != pos['class']):
             current_class = pos['class']
-            print_class(current_class)
+            if (display_class_icon): print_class(current_class)
         print_operator(pos, sk)
 
 
+    print('\n干员数量统计 '+str(num))
+    print('\n专精数量统计[专0，专1，专2，专3] = ' + str(mcnt))
+    
 
-    print("专精数量： ")
-    print(mcnt)
+
+    if (scale != 1.0):
+        bg_ratio =  bg.height / bg.width
+        bg = bg.resize((int(bg.width * scale), int(bg.width * scale * bg_ratio)), Image.ANTIALIAS)
+    
     bg.show()
-    bg.convert('RGB').convert('RGBA').save('result-c.png')
+    
+    zs,xs = str(scale*100).split('.')
+    bg.convert('RGB').convert('RGBA').save('result-c-'+ str(zs) +'%.png')
     '''
 
  
