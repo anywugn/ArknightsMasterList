@@ -1,6 +1,7 @@
 /private/*
 
 *.psd
+*.xlsx
 
 result-final.jpg
 result-final.png

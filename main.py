@@ -1,4 +1,7 @@
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
+from openpyxl import load_workbook
+import sys
+
 
 # don't change
 input_operation_list = 'operators.txt'
@@ -8,7 +11,7 @@ input_operation_list = 'operators.txt'
 input_skill_list = 'skills.txt'
 
 
-# if no left [ID Card] then set to 0
+# with [ID Card] then set to about 407
 left_indent = 407
 
 
@@ -52,22 +55,33 @@ startX = left_indent
 bg = ''
 current_class = ''
 mcnt = [0, 0, 0, 0]
+furniture_cnt = 766
+furniture_total = 776
+medal_cnt = 213
+medal_total = 213
+operator_cnt = 188
+operator_total = 188
+doctor_level = 120
+doctor_name = '凯尔希'
+doctor_no = 3989
 
 
-def print_operator(op, sk):
+def print_operator(op):
 
     # check qualifications
-    if (sk['skill1'] + sk['skill2'] + sk['skill3'] <= 0 and master_only):
+    if (op['skill1'] + op['skill2'] + op['skill3'] <= 0 and master_only):
         return
 
     # debug
     # print(op['name'])
-    print('正在打印：' + sk['name'] + '\n')
+    print('正在打印：' + op['name'] + '\n')
 
     # cnt
-    mcnt[sk['skill1']] += 1
-    mcnt[sk['skill2']] += 1
-    mcnt[sk['skill3']] += 1
+    mcnt[op['skill1']] += 1
+    mcnt[op['skill2']] += 1
+    mcnt[op['skill3']] += 1
+
+
 
     # change position
     global startX, line, startY, bg
@@ -78,14 +92,14 @@ def print_operator(op, sk):
 
     # load images
     img1 = Image.open('resource/Slot - single - background.png')
-    img2 = Image.open('avatar/' + op['filename'] + '_' + str(sk['costume']) + '.png')
+    img2 = Image.open('avatar/' + op['filename'] + '_' + str(op['costume']) + '.png')
     img3 = Image.open('resource/Slot - single  精二+黑遮罩.png')
-    img4 = Image.open('resource/Akteam-rarity_' + op['rare'] + '.png')
-    img5 = Image.open('resource/潜能' + str(sk['potential']) + '.png')
-    img6 = Image.open('resource/' + str((sk['level'] // 10) * 10) + '.png')
-    img7 = Image.open('resource/专精' + str(sk['skill1']) + '.png')
-    img8 = Image.open('resource/专精' + str(sk['skill2']) + '.png')
-    img9 = Image.open('resource/专精' + str(sk['skill3']) + '.png')
+    img4 = Image.open('resource/Akteam-rarity_' + str(op['rare']) + '.png')
+    img5 = Image.open('resource/潜能' + str(op['potential']) + '.png')
+    img6 = Image.open('resource/' + str((op['level'] // 10) * 10) + '.png')
+    img7 = Image.open('resource/专精' + str(op['skill1']) + '.png')
+    img8 = Image.open('resource/专精' + str(op['skill2']) + '.png')
+    img9 = Image.open('resource/专精' + str(op['skill3']) + '.png')
 
     # adjust images
 
@@ -102,7 +116,7 @@ def print_operator(op, sk):
     bg.paste(img6, (startX + 108, startY + 250), mask=img6)
     bg.paste(img7, (startX + 17, startY + 292), mask=img7)
     bg.paste(img8, (startX + 62, startY + 292), mask=img8)
-    if (op['rare'] == '6' or op['name'] == '阿米娅'):
+    if (op['rare'] == 6 or op['name'] == '阿米娅'):
         bg.paste(img9, (startX + 107, startY + 292), mask=img9)
 
     startX += slot_width
@@ -122,33 +136,63 @@ def print_class(class_name):
     startX += slot_width
 
 
+def get_font_render_width(text, fontsize):
+    canvas = Image.new('RGB', (2048, 2048))
+    draw = ImageDraw.Draw(canvas)
+    path_to_ttf = r'c:\windows\fonts\msyh.ttc'
+    monospace = ImageFont.truetype(path_to_ttf, fontsize)
+    draw.text((0, 0), text, font=monospace, fill=(5, 5, 5))
+    bbox = canvas.getbbox()
+    width = bbox[2] - bbox[0]
+    return width
+
+
 if __name__ == "__main__":
 
-    with open(input_operation_list, 'r', encoding='utf-8') as f:
-        operator = eval('[' + f.read() + ']')
+    wb = load_workbook(filename='aml-input.xlsx')
+    ss = wb['skills']  # skill sheet
 
-    with open(input_skill_list, 'r', encoding='utf-8') as f:
-        skill = eval('[' + f.read() + ']')
 
-    num = 8
-    for sk in skill:
+    ss_dict = []
+
+    for row_objects in ss:
+        if row_objects[0].row != 1 and row_objects[1].value is not None:
+            ss_dict.append({'name': row_objects[0].value,
+                            'costume': row_objects[1].value,
+                            'potential': row_objects[2].value,
+                            'level': row_objects[3].value,
+                            'skill1': row_objects[4].value,
+                            'skill2': row_objects[5].value,
+                            'skill3': row_objects[6].value,
+                            'filename': row_objects[7].value,
+                            'rare': row_objects[8].value,
+                            'class': row_objects[9].value
+                            })
+            for k in ss_dict[-1]:
+                if ss_dict[-1][k] is None:
+                    ss_dict[-1][k] = 0
+
+
+
+
+
+
+    num = 0
+    for sk in ss_dict:
 
         # 顺便的
         if (sk['skill1'] + sk['skill2'] + sk['skill3'] > 0 or not master_only):
             num += 1
 
-        posclass = ''
-        for op in operator:
-            if (sk['name'] == op['name']):
-                posclass = op['class']
-
-        sk['class'] = posclass
-
     if (list_sorted or display_class_icon):
-        skill = sorted(skill, key=lambda i: (
+        ss_dict = sorted(ss_dict, key=lambda i: (
             i['class'], i['level']), reverse=True)
 
     print('您一共有 ' + str(num) + ' 个干员要打印\n')
+
+
+
+
 
     if (background_png != ''):
         bg = Image.open(background_png)
@@ -163,23 +207,93 @@ if __name__ == "__main__":
     slot_width = img0.width
     slot_height = img0.height
 
-    for sk in skill:
+    for op in ss_dict:
 
-        pos = ''
-        for op in operator:
-            if (op['name'] == sk['name']):
-                pos = op
-                # print("matched! :" + op['name']+ '\n')
-
-        if (current_class != pos['class']):
-            current_class = pos['class']
-            if (display_class_icon):
+        if current_class != op['class']:
+            current_class = op['class']
+            if display_class_icon:
                 print_class(current_class)
-        print_operator(pos, sk)
+        print_operator(op)
+
+
+
+
 
     print('\n干员数量统计 ' + str(num))
     print('\n专精数量统计[专0，专1，专2，专3] = ' + str(mcnt))
 
+    # adding namecard
+    namecard_img = Image.open('resource/namecard-v2-empty.png')
+    bg.paste(namecard_img, (0, 0), mask=namecard_img)
+
+
+
+    path_to_ttf = r'c:\windows\fonts\msyh.ttc'
+    # 入职日期
+    draw = ImageDraw.Draw(bg)
+    font = ImageFont.truetype(path_to_ttf, size=25)
+    draw.text(xy=(123, 28), text='2019-04-30', font=font, fill=(0, 0, 0,255))
+    draw.text(xy=(123, 77), text='2021-06-22', font=font, fill=(0, 0, 0,255))
+
+    # 专精数量
+    font = ImageFont.truetype(path_to_ttf, size=34)
+    # 专3
+    tri_mid = 68
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[3])) / 2) - 3 + 1, 233 + 1), text=str(mcnt[3]), font=font, fill=(0, 0, 0, 255))
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[3])) / 2) - 3, 233), text=str(mcnt[3]), font=font, fill=(255, 255, 255, 255))
+    # 专2
+    tri_mid = 164
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[2])) / 2) - 3 + 1, 233 + 1), text=str(mcnt[2]), font=font, fill=(0, 0, 0, 255))
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[2])) / 2) - 3, 233), text=str(mcnt[2]), font=font, fill=(255, 255, 255, 255))
+    # 专1
+    tri_mid = 259
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[1])) / 2) - 3 + 1, 233 + 1), text=str(mcnt[1]), font=font, fill=(0, 0, 0, 255))
+    draw.text(xy=(tri_mid - (18 * len(str(mcnt[1])) / 2) - 3, 233), text=str(mcnt[1]), font=font, fill=(255, 255, 255, 255))
+
+    # 家具
+    font = ImageFont.truetype(path_to_ttf, size=22)
+    draw.text(xy=(30, 350), text=str(furniture_cnt), font=font, fill=(251, 225, 111, 255))
+    draw.text(xy=(30 + 13 * len(str(furniture_cnt)) - 1, 350), text='/' + str(furniture_total), font=font, fill=(255, 255, 255, 255))
+
+    # 蚀刻章
+    font = ImageFont.truetype(path_to_ttf, size=22)
+    draw.text(xy=(180, 350), text=str(medal_cnt), font=font, fill=(251, 225, 111, 255))
+    draw.text(xy=(180 + 13 * len(str(medal_cnt)) - 1, 350), text='/' + str(medal_total), font=font, fill=(255, 255, 255, 255))
+
+    # 雇佣干员数
+    font = ImageFont.truetype(path_to_ttf, size=65)
+    draw.text(xy=(29, 445), text=str(operator_cnt), font=font, fill=(251, 225, 111, 255))
+    draw.text(xy=(29 + 38 * len(str(operator_cnt)) - 1, 445), text='/' + str(operator_total), font=font, fill=(255, 255, 255, 255))
+
+
+
+    # 头像
+    # (107,721)
+    # 232 * 232
+
+
+    # 博士等级
+    doctor_level_img = Image.open('resource/doctor-level-mask.png')
+    bg.paste(doctor_level_img, (63, 676), mask=doctor_level_img)
+    font = ImageFont.truetype(path_to_ttf, size=47)
+    mid = 110
+    draw.text(xy=(110 - (27 * len(str(doctor_level))) / 2, 695), text=str(doctor_level), font=font, fill=(255, 255, 255, 255))
+
+
+    # 博士名字
+    dr_doctor_name = 'Dr.' + doctor_name + '#' + str(doctor_no)
+    doctor_name_fontsize = 63
+    while get_font_render_width(dr_doctor_name, doctor_name_fontsize) > 520:
+        doctor_name_fontsize -= 5
+
+    font = ImageFont.truetype(path_to_ttf, size=doctor_name_fontsize)
+    draw.text(xy=(10, 967), text=str('Dr.' + doctor_name), font=font, fill=(255, 255, 255, 255))
+    draw.text(xy=(10 + get_font_render_width('Dr.' + doctor_name, doctor_name_fontsize) + 10, 967), \
+        text=str( '#' + str(doctor_no)), font=font, fill=(243, 164, 57, 255))
+
+
+
+    # scale begins, no changes to image beyond this point
     if (scale != 1.0):
         bg_ratio = bg.height / bg.width
         bg = bg.resize(
